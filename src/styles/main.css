@@ -9,7 +9,7 @@ body {
 .flex {
   display: flex;
   justify-content: space-between;
-  margin-left: 10%;
+  margin-left: 18%;
   background: white;
   width: 700px;
   height: 121px;
@@ -19,7 +19,7 @@ body {
   padding: 20px 20px 20px 20px;
 }
 
-img {
+.product_image {
   margin-top: 7px;
   vertical-align: bottom;
   border: none;
