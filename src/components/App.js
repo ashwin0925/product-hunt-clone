@@ -2,6 +2,9 @@ import React from "react"
 import Cards from "./Cards"
 import Header from "./Header"
 import Aside from "./Aside"
+import axios from "axios"
+
+
 let id = 0
 let products = [
   {
@@ -68,12 +71,32 @@ class App extends React.Component {
       name: "",
       description: "",
       img: "",
-      tags: ""
+      tags: "",
+      token: "uk0QiyPhY28ipkBigm9ZXRBfFiK5XmhYU_mAU1uINe0",
+      test: null
     }
   }
+  componentDidMount() {
+    axios("https://api.producthunt.com/v1/posts/all?per_page=10",
+      {
+        method: "GET",
+        headers: {
+          'Authorization': `Bearer ${this.state.token}`,
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        }
+      }).then(res => {
+        this.setState({
+          test: res.data.posts
+        })
+        console.log(res)
+      })
+  }
+
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value })
   }
+
   handleSubmit = () => {
     this.setState({
       data: this.state.data.concat({
@@ -102,13 +125,14 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        {/* <githb /> */}
         <Header />
         <div style={{ display: "flex", "flex-direction": "row" }}>
           <div>
             <div className="app_heading">
               <span className="app_Today">Today</span>
             </div>
-            <Cards update={this.update} data={this.state.data} />
+            <Cards update={this.update} data={this.state.test} />
           </div>
           <div style={{ "margin-left": "145px" }}>
             <Aside handleChange={this.handleChange} handleSubmit={this.handleSubmit} />

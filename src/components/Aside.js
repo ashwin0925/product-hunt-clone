@@ -1,7 +1,5 @@
 import React from "react"
 import "../styles/aside.css"
-
-
 function Aside(props) {
   return (
     <div className="aside_Flex">
@@ -10,7 +8,7 @@ function Aside(props) {
       </div>
       <div className="box1">
         <div className="image_Box">
-          <img className="image" src="https://ph-avatars.imgix.net/1456069/original?auto=format&auto=compress&codec=mozjpeg&cs=strip&w=120&h=120&fit=crop" alt="image1" />
+          <img className="image" src={props.img ? props.img : "https://ph-avatars.imgix.net/1456069/original?auto=format&auto=compress&codec=mozjpeg&cs=strip&w=120&h=120&fit=crop"} alt="image1" />
           <img className="image" src="https://ph-avatars.imgix.net/166755/original?auto=format&auto=compress&codec=mozjpeg&cs=strip&w=120&h=120&fit=crop" alt="image1" />
           <img className="image" src="https://ph-avatars.imgix.net/1903430/original?auto=format&auto=compress&codec=mozjpeg&cs=strip&w=120&h=120&fit=crop" alt="image1" />
           <img className="image" src="https://ph-avatars.imgix.net/826276/original?auto=format&auto=compress&codec=mozjpeg&cs=strip&w=120&h=120&fit=crop" alt="image1" />
@@ -69,6 +67,10 @@ function Aside(props) {
 
   )
 
+
 }
+
+
+
 
 export default Aside

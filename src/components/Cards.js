@@ -7,7 +7,7 @@ class Cards extends React.Component {
   render() {
     return (
       <div>
-        {this.props.data.map(product => <Card {...product} update={this.props.update} />)}
+        {this.props.data ? this.props.data.map(product => <Card {...product} update={this.props.update} />) : null}
       </div>
     )
 
