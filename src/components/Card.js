@@ -7,7 +7,8 @@ function Card(props) {
   return (
     <div className="flex">
       <div className=" product">
-        <img className="product_image" src={props.img} alt={props.name} />
+
+        <img className="product_image" src={props.img ? props.img : "https://ph-files.imgix.net/45b0bd57-bc3f-43dd-9b84-67b15c6d2cd2?auto=format&auto=compress&codec=mozjpeg&cs=strip&w=80&h=80&fit=crop"} alt={props.name} />
 
         <div className="product_box">
           <h3 className="product_name">{props.name}</h3>
@@ -24,7 +25,7 @@ function Card(props) {
 
 
       <div className="product_number">
-        <div className="symbol">▲</div>
+        <div onClick={() => props.update(props.id)} className="symbol">▲</div>
         <span className="product_num">{props.number}</span>
       </div>
     </div>

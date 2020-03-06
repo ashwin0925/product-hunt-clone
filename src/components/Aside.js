@@ -2,7 +2,7 @@ import React from "react"
 import "../styles/aside.css"
 
 
-function Aside() {
+function Aside(props) {
   return (
     <div className="aside_Flex">
       <div className="aside_heading">
@@ -51,12 +51,20 @@ function Aside() {
       </div>
 
       <div className="box4">
-        <p className="aside_Text5">Get the best new products in your inbox, every day 👇 </p>
+        <p className="aside_Text5">Get the best new products in your inbox, every day <span role="img" aria-label="finger">👇</span> </p>
         <input className="aside_email" type="text" placeholder="Your email" />
         <button className="aside_button">SUBSCRIBE</button>
       </div>
-
-
+      <div>
+        <p className="aside_Text2">Add Product</p>
+      </div>
+      <div className="box5">
+        <input className="aside_email aside_add" onChange={props.handleChange} name="name" type="text" placeholder="Name" />
+        <input className="aside_email aside_add" onChange={props.handleChange} name="description" type="text" placeholder="Description" />
+        <input className="aside_email aside_add" onChange={props.handleChange} name="img" type="text" placeholder="Image Link" />
+        <input className="aside_email aside_add" onChange={props.handleChange} name="tags" type="text" placeholder="Tags" />
+        <button onClick={props.handleSubmit} className="aside_button">UPDATE</button>
+      </div>
     </div >
 
   )
